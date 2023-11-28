@@ -1,4 +1,4 @@
-import { useCounter } from "../../src/hooks/useCounter";
+import { useCounter } from "../../src/hooks/useVoter";
 import { act, renderHook } from "@testing-library/react";
 
 describe("useCounter", () => {
