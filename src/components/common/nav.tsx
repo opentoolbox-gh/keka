@@ -1,8 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC, useState } from 'react';
 import AddProfileModal from '../profile/AddProfile';
+import axios from 'axios';
+import apisInfo from '@/assets/apis';
+import { toast } from 'react-toastify';
 
 const Nav: FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [searchKey, setSearchKey] = useState<string>('');
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -12,15 +18,23 @@ const Nav: FC = () => {
     setIsModalOpen(false);
   };
 
-  const addProfile = (profile: {
+  const addProfile = async (profile: {
     avatar: string;
     name: string;
     headline: string;
     tags: string[];
     id: string;
   }) => {
-    // Add your logic to handle adding the profile to your state or API
-    console.log('Adding profile:', profile);
+    try {
+      const response = await axios.post(`${apisInfo.url}/api/users`, profile);
+      if (response.status == 201) {
+        toast.info(`Profile added successfuly`, { position: toast.POSITION.TOP_CENTER, autoClose: 5000 });
+        closeModal();
+      }
+      
+    } catch (error: any) {
+      toast.error(error.message, { position: toast.POSITION.TOP_CENTER, autoClose: 5000 });
+    }
   };
 
   return (
@@ -33,6 +47,7 @@ const Nav: FC = () => {
           <input
             className="px-3 py-2 mr-2 bg-gray-700 rounded-md focus:outline-none text-white placeholder-gray-400"
             type="search"
+            onChange={(e) => setSearchKey(e.target.value)}
             placeholder="Search ..."
           />
           <button

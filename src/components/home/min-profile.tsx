@@ -23,14 +23,14 @@ const ProfileOverview: FC<UserType> = (info) => {
         <img
           src={info.user.avatar}
           alt={`${info.user.name}'s profile picture`}
-          className="rounded-full h-24 w-24 mr-4"
+          className="rounded-full h-24 w-24 mr-4 border border-opacity-40 border-slate-500"
         />
         <div className="flex flex-col items-center">
           <span className="text-xl font-bold">{info.user.name}</span>
           <p className="text-gray-600">{info.user.headline}</p>
           <div className="flex flex-wrap mt-2 gap-4">
             {info.user.tags.map((tag, index) => (
-              <Tag key={index} name={tag} />
+              <Tag key={index} tag={tag} />
             ))}
           </div>
         </div>

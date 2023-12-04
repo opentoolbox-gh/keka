@@ -18,7 +18,6 @@ const AddProfileModal: FC<AddProfileModalProps> = ({ closeModal, addProfile }) =
   const [tags, setTags] = useState<string[]>([]);
 
   const handleSubmit = () => {
-    // Validate form data if needed
 
     // Create a new profile object
     const newProfile = {
@@ -26,7 +25,7 @@ const AddProfileModal: FC<AddProfileModalProps> = ({ closeModal, addProfile }) =
       name,
       headline,
       tags,
-      id: `sample-id-${Math.floor(Math.random() * 1000)}`, // Generate a random id (you might want to use a more robust method)
+      id: `sample-id-${Math.floor(Math.random() * 1000)}`, // Generate a random id
     };
 
     // Add the new profile
