@@ -1,7 +1,8 @@
-const NoPage = () => {
+import { FC } from "react";
+
+const NoPage:FC = () => {
     return (
         <>  
-            <div>404</div>
         </>
     )
 }
