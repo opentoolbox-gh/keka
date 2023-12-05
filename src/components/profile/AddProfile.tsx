@@ -25,7 +25,7 @@ const AddProfileModal: FC<AddProfileModalProps> = ({ closeModal, addProfile }) =
       name,
       headline,
       tags,
-      id: `sample-id-${Math.floor(Math.random() * 1000)}`, // Generate a random id
+      id: `user-id-${Math.floor(Math.random() * 1000)}`, // Generate a random id
     };
 
     // Add the new profile

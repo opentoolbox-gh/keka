@@ -7,8 +7,6 @@ import { toast } from 'react-toastify';
 
 const Nav: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [searchKey, setSearchKey] = useState<string>('');
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -47,7 +45,6 @@ const Nav: FC = () => {
           <input
             className="px-3 py-2 mr-2 bg-gray-700 rounded-md focus:outline-none text-white placeholder-gray-400"
             type="search"
-            onChange={(e) => setSearchKey(e.target.value)}
             placeholder="Search ..."
           />
           <button
